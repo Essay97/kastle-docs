@@ -1,8 +1,13 @@
 site_name: Kastle
 nav:
-  - Getting Started:
+  - Start Here:
+      - Overview: getting-started/overview.md
       - Installation: getting-started/installation.md
       - Your first game: getting-started/first-game.md
+  - Players:
+      - Players guide: play.md
+  - Developers:
+      - Developers guide: develop.md
 theme:
   name: material
   features:
@@ -10,11 +15,13 @@ theme:
   palette:
     - scheme: default
       primary: amber
+      accent: orange
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
     - scheme: slate
       primary: amber
+      accent: orange
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
