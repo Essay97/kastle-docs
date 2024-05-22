@@ -1,9 +1,7 @@
 site_name: Kastle
 nav:
   - Start Here:
-      - Overview: 
-        - getting-started/overview.md
-        - Sub: getting-started/sub.md
+      - Overview: getting-started/overview.md
       - Installation: getting-started/installation.md
       - Your first game: getting-started/first-game.md
   - Players:
