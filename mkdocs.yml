@@ -1,0 +1,20 @@
+site_name: Kastle
+nav:
+  - Getting Started:
+      - Installation: getting-started/installation.md
+      - Your first game: getting-started/first-game.md
+theme:
+  name: material
+  features:
+    - navigation.tabs
+  palette:
+    - scheme: default
+      primary: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
