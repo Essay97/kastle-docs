@@ -11,11 +11,13 @@ project setup.
 
 Once you created the project, go to your `build.gradle.kts` file and add the following line into the `dependencies` block and reload the Gradle project:
 
-```kotlin
-implementation("io.github.essay97:kastle-lib:1.0.0")
+```kotlin hl_lines="2"
+dependencies {
+    implementation("io.github.essay97:kastle-lib:1.0.0")
+}
 ```
 
-## GameProvider
+## Implement the GameProvider
 
 This last step makes the project an actual Kastle game: the dependency that we installed in the previous step allows access to the `GameProvider` interface,
 that we need to implement.
@@ -23,9 +25,37 @@ that we need to implement.
 The following is an example:
 
 ```kotlin
-package com.example.mypackage
+package com.example.mypackage // (1)!
 
-class MyKastleGame : GameProvider {
+import io.github.essay97.kastle.service.GameProvider
 
+class ExampleGame : GameProvider {
+    override fun provideConfiguration(): GameConfiguration {
+        TODO("Implement your game here!")
+    }
 }
 ```
+
+1. Substitute this with your own package name. Make it unique so that your class does not clash with the ones from
+   other developers.
+
+## Let the engine discover the game
+
+Just implementing the GameProvider interface is not sufficient though. To make sure that the engine can discover your game,
+you need to create a file in the `resources/META-INF/services` folder called `io.github.essay97.kastle.service.GameProvider`
+and write a single line that is the fully qualified name of your class (`<package name>.<class name>`).
+
+If we continue with the previous example, the folder structure would be:
+
+```yaml
+src
+└── main
+├── kotlin
+│   └── ExampleGame.kt
+└── resources
+└── META-INF
+└── services
+└── io.github.essay97.kastle.service.GameProvider # (1)!
+```
+
+1. The content of this file is `com.example.mypackage.ExampleGame`
