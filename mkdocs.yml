@@ -7,12 +7,23 @@ nav:
   - Players:
       - Players guide: play.md
   - Developers:
-      - Developers guide: develop.md
+      - Quickstart:
+        - Project setup: develop/project-setup.md
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
 theme:
   name: material
   features:
     - navigation.tabs
     - navigation.top
+    - content.code.copy
+    - content.code.annotate
   palette:
     - scheme: default
       primary: amber
