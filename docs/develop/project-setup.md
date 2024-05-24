@@ -50,12 +50,12 @@ If we continue with the previous example, the folder structure would be:
 ```yaml
 src
 └── main
-├── kotlin
-│   └── ExampleGame.kt
-└── resources
-└── META-INF
-└── services
-└── io.github.essay97.kastle.service.GameProvider # (1)!
+    ├── kotlin
+    │   └── ExampleGame.kt
+    └── resources
+        └── META-INF
+            └── services
+                └── io.github.essay97.kastle.service.GameProvider # (1)!
 ```
 
 1. The content of this file is `com.example.mypackage.ExampleGame`
