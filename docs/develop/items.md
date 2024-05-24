@@ -10,6 +10,10 @@ these two properties to let the player discover details about the game. As an ex
 
 In the following paragraphs, we'll learn how to make more complex items.
 
+!!! info "Item ID"
+
+    The ID of any item must always start with `i-` and contain only lowecase letters, numbers and dashes.
+
 ## Grabbing items
 
 In order to use an item to open a door, we must make that item storable in the player inventory. We do that exactly with the `storable` property:
@@ -30,7 +34,7 @@ Items are found by the player in the environment by using their name.
 We can make the life of the player easier by allowing multiple names to reference a specific item.
 In particular, an item will respond to its name and all the strings that are defined in the `matchers` property
 
-```kotiln hl_lines="3"
+```kotlin hl_lines="3"
 item("i-sword") {
   name = "Sword"
   matchers("blade", "weapon")
