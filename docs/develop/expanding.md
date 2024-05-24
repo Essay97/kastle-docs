@@ -17,3 +17,25 @@ room("r-start") {
     }
 }
 ```
+
+## Adding NPCs
+
+Also NPCs can be found in a room. Let's add one right under the `item` block:
+
+```kotlin
+character("c-doorman") {
+    name = "Jack"
+    description = "Jack is the official Kastle's doorman!"
+}
+```
+
+### Adding dialogue
+
+An NPC like this is not that much useful, right? We want the characters of our stories to be dynamic and interactive. The following block adds a simple dialogue to the doorsman. You can add it inside the `character` block:
+
+```kotlin
+character("c-doorman") {
+    name = "Jack"
+    description = "Jack is the official Kastle's doorman!"
+}
+```
