@@ -12,8 +12,8 @@ nav:
           - Your first game: develop/first-game.md
           - Expanding the game: develop/expanding.md
       - Advanced topics: 
-        - Items: develop/items.md
         - Starting and ending the game: develop/start-end.md
+        - Items: develop/items.md
         - Characters and Dialogues: develop/characters.md
         - Rooms and connections: develop/rooms.md
         - Metadata: develop/metadata.md
