@@ -67,6 +67,19 @@ winIf {
 }
 ```
 
+## Defining the player
+
+You can rest assured that every adventure has its hero! We'll define ours with the following lines:
+
+```kotlin
+player {
+    name = "Enrico"
+    description = "Enrico is the author of Kastle and also an awesome hero"
+}
+```
+
+I'm giving my name to the hero, but feel free to put yours!
+
 ## Building the game
 
 This little example might be not that fun to play, but it really is what it takes to create a fully functional Kastle game,
