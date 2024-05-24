@@ -61,7 +61,7 @@ character("c-doorman") {
 
                     You reached the end of your first Kastle game.
                     Move to the north to win the game!'
-                """.trimIndent()
+                """.trimIndent() // (4)!
             }
         }
 
@@ -75,6 +75,8 @@ character("c-doorman") {
 1. The `firstQuestion` block is mandatory to let Kastle know where to start
 2. Here we are defining the ID of the next question. Make sure to define a question with this ID later on!
 3. If the player reaches this branch of the dialogue, they get rewarded with an item. Inside the `reward` block,
-   you can define an item with the exact same DSL that we used before
+   you can define an item with the exact same DSL that we used before.
+4. Remember that the DSL is first and foremost Kotlin code! We can leverage all the features of the language,
+   such as multiline strings and the `trimIndent` function in this case.
 
 The Dialogue DSL is for sure the the most complex in Kastle, but it really gives depth to your characters and your story!
