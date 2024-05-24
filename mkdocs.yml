@@ -13,8 +13,10 @@ nav:
           - Expanding the game: develop/expanding.md
       - Advanced topics: 
         - Items: develop/items.md
+        - Starting and ending the game: develop/start-end.md
         - Characters and Dialogues: develop/characters.md
         - Rooms and connections: develop/rooms.md
+        - Metadata: develop/metadata.md
         - Game patterns: develop/patterns.md
         - Distributing your game: develop/distributing.md
 markdown_extensions:
