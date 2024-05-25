@@ -1,24 +1,27 @@
 site_name: Kastle
+repo_url: https://github.com/Essay97/kastle-mm
+repo_name: Essay97/kastle-mm
 nav:
   - Start Here:
-    - Overview: getting-started/overview.md
-    - Installation: getting-started/installation.md
-    - Your first game: getting-started/first-game.md
+      - Overview: getting-started/overview.md
+      - Installation: getting-started/installation.md
+      - Your first game: getting-started/first-game.md
   - Players:
-    - Players guide: play.md
+      - Players guide: play.md
   - Developers:
-    - Quickstart:
-      - Project setup: develop/project-setup.md
-      - Your first game: develop/first-game.md
-      - Expanding the game: develop/expanding.md
-    - Advanced topics: 
-      - Starting and ending the game: develop/start-end.md
-      - Items: develop/items.md
-      - Characters and Dialogues: develop/characters.md
-      - Rooms and connections: develop/rooms.md
-      - Metadata: develop/metadata.md
-      - Game patterns: develop/patterns.md
-      - Distributing your game: develop/distributing.md
+      - Quickstart:
+          - Project setup: develop/project-setup.md
+          - Your first game: develop/first-game.md
+          - Expanding the game: develop/expanding.md
+      - Advanced topics:
+          - Starting and ending the game: develop/start-end.md
+          - Rooms and connections: develop/rooms.md
+          - Items: develop/items.md
+          - Characters and Dialogues: develop/characters.md
+          - Metadata: develop/metadata.md
+          - Game patterns: develop/patterns.md
+          - Using multiple files: develop/multiple-files.md
+          - Distributing your game: develop/distributing.md
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
@@ -31,6 +34,8 @@ markdown_extensions:
   - pymdownx.details
 theme:
   name: material
+  icon:
+    repo: fontawesome/brands/github
   features:
     - navigation.tabs
     - navigation.top

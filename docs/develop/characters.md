@@ -32,3 +32,44 @@ A dialogue always starts with a `dialogue` block inside the `character` block.
 The absolute first thing that we should do after we instantiated the `dialogue` is to instantiate a question.
 The first question must be declared using the `firstQuestion` function, all the subsequent ones should use `question`,
 but they work exactly the same.
+
+- First of all you need to define the text of the question through the `text` property
+- You can add answers by using the `answer` function as many times as you want. To define the answer:
+    - Define the text through the property `text`
+    - Define the next question through the property `nextQuestion` (referenced by ID)
+- If you don't add any answers, the question is the last one in the dialogue. In this case you can define a reward through
+the `reward` function, that works exactly like instantiating an item. 
+
+Let's review the complete example that we did in [Exapanding the game](expanding.md):
+```kotlin
+dialogue {
+    firstQuestion("d-first") {
+        text = "Hey player! are you ready for the adventure?"
+        answer {
+            text = "Yes!"
+            nextQuestion = "d-ifyes"
+        }
+        answer {
+            text = "No..."
+            nextQuestion = "d-ifno"
+        }
+    }
+
+    question("d-ifyes") {
+        text = "Ok, take this and go the the next room!"
+        reward("i-diploma") {
+            name = "Diploma"
+            description = """
+                It's a nice diploma with decorated borders. It says:
+                'Well done, player! 
+                
+                You are ready for a ton of fun playing Kastle games!'
+            """.trimIndent()
+        }
+    }
+
+    question("d-ifno") {
+        text = "No problem, I'll wait until you're ready, but you're missing a lot of fun!"
+    }
+}
+```
