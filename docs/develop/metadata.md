@@ -11,8 +11,8 @@ The available and configurable metadata are:
 - the publication date
 - the Kastle versions that this verision of the game is compatible with
 
-None of these data is mandatory and their purpose is purely documentation (e.g. even if we specify the Kastle versions, Kastle won't
-prevent us from running the game in an incompatible version)
+None of these data is mandatory and their purpose is purely documentation (e.g. even if we specify the Kastle versions,
+Kastle won't prevent us from running the game in an incompatible version).
 
 The `metadata` block must be put directly into the `game` block. Here's an example:
 
