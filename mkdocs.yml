@@ -19,6 +19,7 @@ nav:
       - Metadata: develop/metadata.md
       - Game patterns: develop/patterns.md
       - Distributing your game: develop/distributing.md
+    - API Reference: "http://localhost:63342/kastle-lib/build/dokka/html/index.html" # TODO change it with the production link
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
