@@ -26,5 +26,8 @@ are specified by their id.
 
 If these values are not specified, the default connection is an `OPEN`, `CONSTANT` door.
 
+!!! warning
+    The doors are not symmetrical by default: if you define a `north` door for a room, you still have to define a `south` door for the connected room. This might seem redundant, but it allows for modeling doors that can only be traversed in one direction or that lead to different destinations depending on the direction of traversal.
+
 ## Adding characters and items
 As we already saw, it's possible to put characters and items into rooms. This is the main way to characterize a room. Follow the dedicated guides to know how to create these objects. 
