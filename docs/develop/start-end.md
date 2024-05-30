@@ -30,11 +30,11 @@ We can define such requirements thanks to the `winIf` block inside the `game` bl
 
 ```kotlin
 winIf {
-    playerEnters = "r-winner-room"
-    playerOwns = "i-winner-item" // (1)!
+    playerEnters = "r-next"
+    playerOwns = "i-medal" // (1)!
 }
 ```
 
-1. We still did not define this item but don't worry, we'll come to it later!
+1. This item hasn't been defined yet, but don't worry, we'll address it later!
 
 Notice that the winner room and the winner item are referenced by their ID and that we are not forced to use both.
