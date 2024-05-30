@@ -80,3 +80,7 @@ character("c-doorman") {
    such as multiline strings and the `trimIndent` function in this case.
 
 The Dialogue DSL is for sure the the most complex in Kastle, but it really gives depth to your characters and your story!
+
+!!! tip "Source code"
+
+    You can find the complete source code of this example on [Github](https://github.com/Essay97/kastle-example/tree/extended).

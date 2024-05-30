@@ -1,6 +1,6 @@
 site_name: Kastle
-repo_url: https://github.com/Essay97/kastle-mm
-repo_name: Essay97/kastle-mm
+repo_url: https://github.com/Essay97/kastle-engine
+repo_name: Essay97/kastle-engine
 nav:
   - Start Here:
       - Overview: getting-started/overview.md
@@ -9,20 +9,20 @@ nav:
   - Players:
       - Players guide: play.md
   - Developers:
-    - Quickstart:
-      - Project setup: develop/project-setup.md
-      - Your first game: develop/first-game.md
-      - Expanding the game: develop/expanding.md
-    - Advanced topics: 
-      - Starting and ending the game: develop/start-end.md
-      - Rooms and connections: develop/rooms.md
-      - Items: develop/items.md
-      - Characters and Dialogues: develop/characters.md
-      - Metadata: develop/metadata.md
-      - Using multiple files: develop/multiple-files.md
-      - Game patterns: develop/patterns.md
-      - Distributing your game: develop/distributing.md
-    - API Reference: "http://localhost/dokka" # TODO change it with the production link
+      - Quickstart:
+          - Project setup: develop/project-setup.md
+          - Your first game: develop/first-game.md
+          - Expanding the game: develop/expanding.md
+      - Advanced topics:
+          - Starting and ending the game: develop/start-end.md
+          - Rooms and connections: develop/rooms.md
+          - Items: develop/items.md
+          - Characters and Dialogues: develop/characters.md
+          - Metadata: develop/metadata.md
+          - Using multiple files: develop/multiple-files.md
+          - Game patterns: develop/patterns.md
+          - Distributing your game: develop/distributing.md
+      - API Reference: "http://localhost/dokka" # TODO change it with the production link
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true

@@ -74,7 +74,7 @@ You can rest assured that every adventure has its hero! We'll define ours with t
 ```kotlin
 player {
     name = "Enrico"
-    description = "Enrico is the author of Kastle and also an awesome hero"
+    description = "Enrico is the author of Kastle and also an awesome hero for this game"
 }
 ```
 
@@ -86,3 +86,7 @@ This little example might be not that fun to play, but it really is what it take
 so let's build it!
 
 At the end of the day, a Kastle game is really just a Gradle project, so we build it by running `gradlew build`. If the command is executed without errors, then you'll find the jar file containing the game under `build/lib/<project name>-<version>.jar`.
+
+!!! tip "Source code"
+
+    You can find the complete source code of this example on [Github](https://github.com/Essay97/kastle-example).

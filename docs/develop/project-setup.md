@@ -13,7 +13,7 @@ Once you created the project, go to your `build.gradle.kts` file and add the fol
 
 ```kotlin hl_lines="2"
 dependencies {
-    implementation("io.github.essay97:kastle-lib:1.0.0")
+    implementation("io.github.essay97:kastle-lib:0.0.2")
 }
 ```
 
