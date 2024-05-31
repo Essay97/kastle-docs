@@ -2,6 +2,7 @@ site_name: Kastle
 repo_url: https://github.com/Essay97/kastle-engine
 repo_name: Essay97/kastle-engine
 nav:
+  - Home: index.md
   - Start Here:
       - Overview: getting-started/overview.md
       - Installation: getting-started/installation.md
