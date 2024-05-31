@@ -4,7 +4,6 @@ repo_name: Essay97/kastle-engine
 nav:
   - Home: index.md
   - Start Here:
-      - Overview: getting-started/overview.md
       - Installation: getting-started/installation.md
       - Your first game: getting-started/first-game.md
   - Players:
@@ -23,7 +22,7 @@ nav:
           - Using multiple files: develop/multiple-files.md
           - Game patterns: develop/patterns.md
           - Distributing your game: develop/distributing.md
-      - API Reference: "http://localhost/dokka" # TODO change it with the production link
+      - API Reference: https://javadoc.io/doc/io.github.essay97/kastle-lib
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
