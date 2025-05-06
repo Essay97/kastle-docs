@@ -33,14 +33,14 @@ pipeline {
           TODAY=$(date +%Y%m%d)
           BACKUP_FILE="${BACKUP_DIR}/backup-${TODAY}.zip"
 
-          zip -r "$BACKUP_FILE" "$SITE_DIR"
+          sudo zip -r "$BACKUP_FILE" "$SITE_DIR"
         '''
       }
     }
 
     stage('Deploy') {
       steps {
-        sh 'cp -r site/. /var/www/kastle-docs/html'
+        sh 'sudo cp -r site /var/www/kastle-docs/html'
       }
     }
 
