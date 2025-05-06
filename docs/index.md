@@ -1,3 +1,5 @@
+ALPHA VERSION
+
 # Overview
 
 Kastle is a text adventure engine. You can use it to run games in your terminal where you'll impersonate a hero and will instruct them about what to do by writing text commands.
