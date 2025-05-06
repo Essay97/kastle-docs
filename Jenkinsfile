@@ -2,8 +2,8 @@ pipeline {
   agent any
   
   parameters {
-    gitParameter type: 'PT_TAG',
-                 name: 'Tag',
+    gitParameter type: 'PT_BRANCH_TAG',
+                 name: 'TAG_OR_BRANCH',
                  defaultValue: 'origin/main',
                  selectedValue: 'NONE',
                  sortMode: 'DESCENDING_SMART',
