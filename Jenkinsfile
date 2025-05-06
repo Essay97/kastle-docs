@@ -11,7 +11,15 @@ pipeline {
   }
 
   stages {
-    stage('test') {
+    stage('Build') {
+      steps {
+        sh """
+          docker run --rm -v "${env.WORKSPACE}:/docs" squidfunk/mkdocs-material:9.6 build
+        """
+      }
+    }
+
+    stage('Deploy') {
       steps {
         sh 'ls -lah'
       }
