@@ -27,17 +27,14 @@ pipeline {
     stage('Backup') {
       steps {
         // Backup current site
-        sh """
+        sh '''
           SITE_DIR="/var/www/kastle-docs/html"
           BACKUP_DIR="/var/www/kastle-docs/backups"
           TODAY=$(date +%Y%m%d)
           BACKUP_FILE="${BACKUP_DIR}/backup-${TODAY}.zip"
 
           zip -r "$BACKUP_FILE" "$SITE_DIR"
-        """
-
-        // Deploy new site
-        sh 'cp -r site/. /var/www/kastle-docs/html'
+        '''
       }
     }
 
