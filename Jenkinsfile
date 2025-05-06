@@ -40,7 +40,7 @@ pipeline {
 
     stage('Deploy') {
       steps {
-        sh 'rm -rf /var/www/kastle-docs/html/* && sudo cp -r site/* /var/www/kastle-docs/html'
+        sh 'sudo rm -rf /var/www/kastle-docs/html/* && sudo cp -r site/* /var/www/kastle-docs/html'
       }
     }
 
