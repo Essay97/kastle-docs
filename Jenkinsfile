@@ -2,7 +2,12 @@ pipeline {
   agent any
   
   parameters {
-    gitParameter branch: '', branchFilter: '.*', defaultValue: 'origin/main', name: 'Tag', quickFilterEnabled: false, selectedValue: 'NONE', sortMode: 'NONE', tagFilter: '*', type: 'GitParameterDefinition'
+    gitParameter type: 'PT_TAG',
+                 name: 'Tag',
+                 defaultValue: 'origin/main',
+                 selectedValue: 'NONE',
+                 sortMode: 'DESCENDING_SMART',
+                 tagFilter: '*'
   }
 
   stages {
