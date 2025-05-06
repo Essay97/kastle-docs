@@ -17,7 +17,6 @@ pipeline {
 
   stages {
     stage('Build') {
-
       steps {
         sh """
           docker run --rm -u ${JENKINS_UID}:${JENKINS_GID} -v "${env.WORKSPACE}:/docs" squidfunk/mkdocs-material:9.6 build
@@ -25,9 +24,38 @@ pipeline {
       }
     }
 
+    stage('Backup') {
+      steps {
+        // Backup current site
+        sh """
+          SITE_DIR="/var/www/kastle-docs/html"
+          BACKUP_DIR="/var/www/kastle-docs/backups"
+          TODAY=$(date +%Y%m%d)
+          BACKUP_FILE="${BACKUP_DIR}/backup-${TODAY}.zip"
+
+          zip -r "$BACKUP_FILE" "$SITE_DIR"
+        """
+
+        // Deploy new site
+        sh 'cp -r site/. /var/www/kastle-docs/html'
+      }
+    }
+
     stage('Deploy') {
       steps {
-        sh 'ls -lah'
+        sh 'cp -r site/. /var/www/kastle-docs/html'
+      }
+    }
+
+    stage('Restart Nginx') {
+      steps {
+        sh 'sudo /bin/systemctl restart nginx'
+      }
+    }
+
+    stage('Cleanup') {
+      steps {
+        cleanWs cleanWhenAborted: false, cleanWhenFailure: false, cleanWhenNotBuilt: false, cleanWhenUnstable: false
       }
     }
   }
