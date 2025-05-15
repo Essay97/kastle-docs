@@ -5,8 +5,8 @@ repo_name: Essay97/kastle-engine
 nav:
   - Home: index.md
   - Start Here:
-      - Installation: getting-started/installation.md
-      - Your first game: getting-started/first-game.md
+      - Installing the engine: getting-started/installation.md
+      - Installing games: getting-started/install-games.md
   - Players:
       - Players guide: play.md
   - Developers:
@@ -34,6 +34,7 @@ markdown_extensions:
   - pymdownx.superfences
   - admonition
   - pymdownx.details
+  - attr_list
 theme:
   name: material
   icon:

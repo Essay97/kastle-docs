@@ -1,15 +1,13 @@
-ALPHA VERSION
-
 # Overview
 
-Kastle is a text adventure engine. You can use it to run games in your terminal where you'll impersonate a hero and will instruct them about what to do by writing text commands.
+**Kastle** is a text adventure engine. You can use it to play games in your terminal, where you take on the role of a hero and control their actions by typing text commands.
 
 You can also use Kastle as a platform to develop your own text adventures.
 
 ## Features
 
-- **Portable**: Kastle runs on the JVM. Every computer with Java installed can run Kastle;
-- **Simple**: Kastle games are simple jar files. The `kastle install` command will take care of managing the games;
-- **Narrative based**: in Kastle there's no fight system. This leads to strongly narrative oriented games with fun stories and mechanics;
-- **Endless possibilities**: Kastle is not focused on a specific lore or game style. Every story that involves a player navigating and environment and interacting with it can be told with Kastle! Save the princess, fix the starship, explore a western village or whatever you want
-- **Customizable**: making a Kastle game is easy with the powerful Kotlin DSL. Install the tools and get started in minutes!
+- **Portable**: Kastle runs on the Java Virtual Machine (JVM), so it works on any computer with Java installed.
+- **Simple**: Kastle games are simple jar files. The `kastle install` command manages game installation for you.
+- **Narrative based**: Kastle focuses on storytelling—there’s no combat system. This leads to highly narrative-driven games with engaging stories and creative mechanics.
+- **Endless possibilities**: Kastle is not tied to any specific lore or genre. Any story involving a player navigating and interacting with an environment can be told with Kastle. Rescue the princess, repair a spaceship, explore a western town—your imagination is the only limit.
+- **Customizable**: creating a Kastle game is easy thanks to its powerful Kotlin-based DSL. Just install the tools and get started in minutes!
