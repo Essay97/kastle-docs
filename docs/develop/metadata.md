@@ -24,7 +24,7 @@ metadata {
     author = "Enrico Saggiorato"
     name = "Tutorial Game"
     version = "1.0.0"
-    kastleVersions = listOf("0.1.0") // CLI versions you have tested
+    kastleVersions = listOf("0.1.2") // CLI versions you have tested
     published = LocalDate(2024, 5, 24)
 }
 ```

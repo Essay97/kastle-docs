@@ -2,7 +2,7 @@
 
 Kastle runs text adventures supplied as game JAR files. Install the [CLI](getting-started/installation.md), obtain a compatible game from its author, then install and launch it as described below.
 
-This guide describes the current monorepo implementation. Older released CLI builds may differ, particularly in how item and character names are recognized.
+This guide describes Kastle 0.1.2. Older CLI builds may differ. See [Installing games](getting-started/install-games.md) for the installation walkthrough.
 
 ## Manage games from your terminal
 
@@ -18,11 +18,11 @@ kastle install com.example.AdventureGame ./adventure.jar --name adventure
 
 Replace the class and path with those supplied by the author. The class comes **before** the JAR path. `-n adventure` is equivalent to `--name adventure`. Quote paths or installed names containing spaces in your shell.
 
-The name is the local label used by `info`, `play`, and `uninstall`; it need not match the title displayed inside the game. If you omit `--name`, Kastle uses the JAR filename without its extension. Currently, the success message can say `null installed correctly.` when no name is supplied; use `kastle list` to check the installed name.
+The name is the local label used by `info`, `play`, and `uninstall`; it need not match the title displayed inside the game. If you omit `--name`, Kastle uses the JAR filename without its extension. The success message confirms the resolved installed name.
 
-Kastle copies the JAR into `~/.kastle/games` and records the installation in `~/.kastle/games.db` (under the Java user's home directory). Installation does not validate that the JAR can actually be played. Use a compatible JAR from a source you trust: games execute JVM code on your computer.
+Kastle copies the JAR into `~/.kastle/games` and records the installation in `~/.kastle/games.db` (under the Java user's home directory). Installation checks the JAR's service registrations and that all registered providers are included, implement `GameProvider`, and can be constructed. It does not run the game configuration; definition validation happens at launch. Use a compatible JAR from a source you trust: provider constructors execute JVM code during installation.
 
-There is no upgrade command. To replace an installed game, uninstall its existing entry before installing the replacement. Installation and removal error handling is still limited; an invalid JAR or missing game can produce an exception rather than a friendly error. A failed installation may leave an entry behind, so check `list` and `info` before retrying.
+There is no upgrade command. Installed names, provider classes, and JAR filenames must each be unique; duplicates are rejected without replacement. To replace a game, uninstall its existing entry before installing the replacement. Invalid JARs and missing games produce errors. Installation and removal coordinate file and database changes with rollback/recovery if an operation fails.
 
 ### List installed games
 
@@ -59,7 +59,7 @@ After leaving the game:
 kastle uninstall adventure
 ```
 
-This removes the installation record and Kastle's copied JAR. It leaves the original JAR you supplied to `install` in place. Use an existing installed name from `kastle list`.
+This removes the installation record and Kastle's copied JAR. It leaves the original JAR you supplied to `install` in place. Use an existing installed name from `kastle list`; an unknown name reports an error. An existing installation can still be removed if its copied JAR is already missing.
 
 ## Enter in-game commands
 
@@ -120,7 +120,7 @@ go north
 
 This sequence only works for a passage that permits both opening and closing. Some passages are fixed, open-only, or close-only. Both `open` and `close` require a matching item in your inventory; having one of several accepted items is sufficient. The item is not consumed. Operating a passage affects that direction from the current room, not automatically the reverse connection.
 
-Currently, successful open/close messages may repeat the source room's name instead of naming the destination. The action still applies to the direction you entered.
+Successful open/close messages identify the source and destination rooms. Opening or closing a passage does not move the player; use `go` to traverse it.
 
 ### Talk and choose answers
 

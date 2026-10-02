@@ -23,13 +23,13 @@ kotlin {
 }
 
 dependencies {
-    implementation("com.saggiodev:kastle-api:0.1.1")
+    implementation("com.saggiodev:kastle-api:0.1.2")
 }
 ```
 
-The dependency coordinates and version above match `api/build.gradle.kts`. The API and CLI currently have separate version values: API `0.1.1`, CLI `0.1.0`. A version in the source does not guarantee that every change in that checkout is available in a published artifact.
+API `0.1.2` is published on Maven Central. The monorepo takes its version from `gradle.properties`, and all modules inherit it. API and CLI publication are separate, so a published API does not imply an available CLI download. For a matching CLI, follow [Installing the engine](../getting-started/installation.md). See the [release policy](https://github.com/Essay97/kastle-monorepo/blob/main/RELEASING.md) for versioning and publication details.
 
-These guides describe the current monorepo, including automatic name matching and terminal dialogue rewards. To use these changes before a release containing them is published, build the API and CLI from the same checkout. In the game's `settings.gradle.kts`, substitute the API dependency with the local project:
+These guides describe Kastle 0.1.2, including automatic name matching, terminal dialogue rewards, and game-definition validation. To develop against a local monorepo checkout instead of the published API, optionally substitute the dependency in the game's `settings.gradle.kts`:
 
 ```kotlin
 rootProject.name = "tutorial-game"
@@ -83,3 +83,14 @@ src/main/
 ```
 
 The current publishing configuration uses `emptyDocs()`, so the navigation links to the [API source and KDoc](https://github.com/Essay97/kastle-monorepo/tree/main/api/src/main/kotlin) rather than promising generated API documentation.
+
+## Definition validation
+
+When a game is launched, Kastle calls `provideConfiguration()` and validates its definition before updating runtime registries. Definition errors are reported together with context so you can fix the affected rooms, items, characters, or questions.
+
+- Room, item, and character IDs must be valid and unique within their respective definitions. Reward items belong to the same item definitions as ordinary room items, so reward IDs must not collide with them or other reward definitions.
+- The initial room, room contents, link destinations, trigger items, and winning-condition references must exist in this configuration.
+- Question IDs must be unique within each character's dialogue. The first question and every answer's destination must exist in that dialogue. Dialogues cannot contain cycles, including self-loops or cycles in unreachable questions; multiple branches may share a later question.
+- Rewards are allowed only on terminal questions and must reference defined items. In the DSL, omit answers to make a terminal question. With direct DTOs, use `answers = null`; a non-null empty answer list is invalid.
+
+Installation checks provider packaging and construction, not the configuration returned by the provider. A successful install therefore does not replace launching and testing your game.

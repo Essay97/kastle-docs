@@ -1,26 +1,30 @@
-# Installation
+# Installing the engine
 
-Follow this guide to get Kastle up and running.
+Kastle runs on **Java 11 or later**, with `java` available in your system's `PATH`.
 
-## Prerequisites
+These guides describe Kastle 0.1.2. The API artifact is published on Maven Central, but CLI downloads are published separately. A hosted CLI archive could not be verified for this documentation update; the source-build instructions below produce a matching CLI.
 
-To run Kastle, you must have Java installed on your PC (version 11 or higher). Additionally, the `java` command must be available in your system's PATH.
+## Build Kastle 0.1.2
 
-## Download
+Building requires Git, a JDK to run Gradle (JDK 17 recommended), and an installed JDK 11 toolchain for compilation. Gradle itself is supplied by the repository's wrapper.
 
-You can download Kastle by clicking one of the links below.
+```sh
+git clone --branch v0.1.2 https://github.com/Essay97/kastle-monorepo.git
+cd kastle-monorepo
+./gradlew :engine:installDist
+```
 
-##### Latest version
+On Windows, use `gradlew.bat :engine:installDist` instead. The launchers are:
 
-- [Version 0.1.1](/attachments/kastle-0.1.1.zip)
+- macOS/Linux: `engine/build/install/kastle/bin/kastle`
+- Windows: `engine/build/install/kastle/bin/kastle.bat`
 
-##### Previous versions
+Run the launcher with `--help` to verify the installation. You can add its `bin` directory to your `PATH` to use `kastle` from any terminal. Keep the adjacent `lib` directory with the launcher; it contains the runtime dependencies.
 
-Currently, there are no older versions of Kastle available.
+## Use a distribution archive
 
-Once you've downloaded the ZIP file, extract it and navigate to the `bin` folder inside `kastle-<version>`. There, you'll find the `kastle` and `kastle.bat` executables, which you can use to run the game engine.
+If you already have a compatible Kastle ZIP, extract it and open `kastle-<version>/bin`. Use `kastle` on macOS/Linux or `kastle.bat` on Windows. Add that `bin` directory to your `PATH`, or invoke the launcher by its path.
 
-- On Windows, use `kastle.bat`
-- On macOS or Linux, use `kastle`
+To produce the ZIP yourself from the checkout above, run `./gradlew :engine:distZip` (`gradlew.bat :engine:distZip` on Windows). The result is `engine/build/distributions/kastle-0.1.2.zip`.
 
-If you’d like, you can add the appropriate executable to your system’s PATH so you can run Kastle as a regular command from any terminal.
+Next, [install a game](install-games.md).

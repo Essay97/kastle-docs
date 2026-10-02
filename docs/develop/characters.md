@@ -28,6 +28,8 @@ Only the reached terminal question's reward is placed in the player's current ro
 
     The ID of any question must always start with `d-` and contain only lowercase letters, numbers and single separating dashes (no trailing or consecutive dashes).
 
+Question IDs must be unique within this character's dialogue. Every answer must lead to a defined question, and cycles are rejected even in unreachable branches. Separate branches may converge on the same question. Reward item IDs must be unique across the game's item definitions. See [Definition validation](project-setup.md#definition-validation).
+
 ## Defining a dialogue
 
 A dialogue always starts with a `dialogue` block inside the `character` block.

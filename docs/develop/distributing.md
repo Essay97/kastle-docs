@@ -13,4 +13,4 @@ kastle play tutorial
 
 The installation arguments are the provider class followed by the JAR path. `--name` (or `-n`) sets the installed name used by `play`; without it the name defaults to the JAR filename without its extension.
 
-There is no built-in remote game repository. Share the JAR using your preferred distribution method and tell players which CLI build you tested. For games using unreleased API changes, distribute or point to the matching CLI build as described in [Project setup](project-setup.md).
+There is no built-in remote game repository. Share the JAR using your preferred distribution method and tell players which CLI build you tested. For a matching 0.1.2 CLI, see [Installing the engine](../getting-started/installation.md). For local API changes, build the CLI from the same checkout as described in [Project setup](project-setup.md).
