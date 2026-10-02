@@ -1,7 +1,7 @@
 site_name: Kastle
 site_url: http://kastle.saggiodev.com/docs
-repo_url: https://github.com/Essay97/kastle-engine
-repo_name: Essay97/kastle-engine
+repo_url: https://github.com/Essay97/kastle-monorepo
+repo_name: Essay97/kastle-monorepo
 nav:
   - Home: index.md
   - Start Here:
@@ -23,7 +23,7 @@ nav:
           - Using multiple files: develop/multiple-files.md
           - Game patterns: develop/patterns.md
           - Distributing your game: develop/distributing.md
-      - API Reference: https://javadoc.io/doc/io.github.essay97/kastle-lib
+      - API source reference: https://github.com/Essay97/kastle-monorepo/tree/main/api/src/main/kotlin
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true

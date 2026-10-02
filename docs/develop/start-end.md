@@ -9,12 +9,13 @@ Kastle allows a preface: a sentence or small text that introduces the game. You 
 You can do that with the `preface` keyword right into the `game` block:
 
 ```kotlin
-game {
+game("r-start") {
     preface = """
         This is the preface of this game.
         As you can see here, by exploiting Kotlin multiline strings, we can provide a quite long text as a preface,
         so in a real game we would have plenty of space to contextualize our game!
-    """.trimIndent
+    """.trimIndent()
+    room("r-start") { name = "Starting room" }
 }
 ```
 
@@ -35,6 +36,6 @@ winIf {
 }
 ```
 
-1. This item hasn't been defined yet, but don't worry, we'll address it later!
+1. Define `i-medal` as a storable item in a room or as a dialogue reward, and define the `r-next` room. The item condition becomes true only after the player collects it.
 
 Notice that the winner room and the winner item are referenced by their ID and that we are not forced to use both.

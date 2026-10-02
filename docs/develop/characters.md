@@ -7,10 +7,10 @@ an impassive guard who never says a word, but as already stated, Dialoge DSL is 
 
 If we don't take into account the dialogue, the Character DSL is very simple: just a name and a description, as we already saw in the previous examples.
 
-Furthermore, just like with items, it's possible to use the `matchers` functions to define alternative names that refer to the character.
+The character's name works with `talk` and `inspect`. Use `matchers("guard", "doorman")` to add aliases. Matching ignores case and surrounding whitespace, but requires the complete name or alias and preserves internal whitespace. An ID is not an automatic alias unless it is also the name (the default when no name is set).
 !!! info "Character ID"
 
-    The ID of any character must always start with `c-` and contain only lowecase letters, numbers and dashes.
+    The ID of any character must always start with `c-` and contain only lowercase letters, numbers and single separating dashes (no trailing or consecutive dashes).
 
 ## Dialogue: general idea
 
@@ -20,11 +20,13 @@ In general, a dialogue can contain two types of objects
   just a phrase spoken by a character different from the player
 - an **answer**: every question except the final ones carries one or more answers, that are phrases said by the player
 
-Each question object carries its own answers and each answer references the next question by its ID. The dialogue ends when the question does not have answers or has a reward (an item that the player earns from the dialogue).
+Each question object carries its own answers and each answer references the next question by its ID. The dialogue ends when a question has no answers, including when that question is the first one. A terminal question may define a reward; a question with answers must not define one.
+
+Only the reached terminal question's reward is placed in the player's current room when the dialogue ends. Rewards are not present initially and are not added directly to inventory. Set `storable = true` on a reward if the player should collect it with `grab`. Each character can be talked to only once per run, even if the chosen branch has no reward.
 
 !!! info "Question ID"
 
-    The ID of any question must always start with `d-` and contain only lowecase letters, numbers and dashes.
+    The ID of any question must always start with `d-` and contain only lowercase letters, numbers and single separating dashes (no trailing or consecutive dashes).
 
 ## Defining a dialogue
 
@@ -69,7 +71,7 @@ dialogue {
     }
 
     question("d-ifno") {
-        text = "No problem, I'll wait until you're ready, but you're missing a lot of fun!"
+        text = "Then this is where our conversation ends. Good luck!"
     }
 }
 ```

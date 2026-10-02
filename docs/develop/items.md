@@ -12,7 +12,7 @@ In the following paragraphs, we'll learn how to make more complex items.
 
 !!! info "Item ID"
 
-    The ID of any item must always start with `i-` and contain only lowecase letters, numbers and dashes.
+    The ID of any item must always start with `i-` and contain only lowercase letters, numbers and single separating dashes (no trailing or consecutive dashes).
 
 ## Grabbing items
 
@@ -32,7 +32,7 @@ An item with this property set can be grabbed, carried around and used.
 
 Items are found by the player in the environment by using their name.
 We can make the life of the player easier by allowing multiple names to reference a specific item.
-In particular, an item will respond to its name and all the strings that are defined in the `matchers` property
+In particular, an item will respond to its name and all the strings that are defined in the `matchers` function
 
 ```kotlin hl_lines="3"
 item("i-sword") {
@@ -40,3 +40,5 @@ item("i-sword") {
   matchers("blade", "weapon")
 }
 ```
+
+Names and aliases match exactly, ignoring case and surrounding whitespace. Internal whitespace remains significant; partial or fuzzy matches are not supported. Thus `inspect sword`, `inspect SWORD` and `inspect blade` address the example above. IDs are not automatic aliases when a different name is set; without a name, the ID is the default name.

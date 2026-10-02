@@ -85,8 +85,52 @@ I'm giving my name to the hero, but feel free to put yours!
 This little example might be not that fun to play, but it really is what it takes to create a fully functional Kastle game,
 so let's build it!
 
-At the end of the day, a Kastle game is really just a Gradle project, so we build it by running `gradlew build`. If the command is executed without errors, then you'll find the jar file containing the game under `build/lib/<project name>-<version>.jar`.
+At the end of the day, a Kastle game is really just a Gradle project, so we build it by running `./gradlew build` (`gradlew.bat build` on Windows). If the command is executed without errors, then you'll find the jar file containing the game under `build/libs/<project name>-<version>.jar`.
 
-!!! tip "Source code"
+## Complete example
 
-    You can find the complete source code of this example on [Github](https://github.com/Essay97/kastle-example).
+With the project name and version from [Project setup](project-setup.md), use this complete `ExampleGame.kt`:
+
+```kotlin
+package com.example.mypackage
+
+import com.saggiodev.kastle.dsl.game
+import com.saggiodev.kastle.dto.GameConfiguration
+import com.saggiodev.kastle.dto.LinkState
+import com.saggiodev.kastle.model.LinkBehavior
+import com.saggiodev.kastle.service.GameProvider
+
+class ExampleGame : GameProvider {
+    override fun provideConfiguration(): GameConfiguration = game("r-start") {
+        room("r-start") {
+            name = "Initial room"
+            description = "This is the first room that the player sees"
+            north("r-next") {
+                behavior = LinkBehavior.CONSTANT
+                state = LinkState.OPEN
+            }
+        }
+        room("r-next") {
+            name = "Another room"
+            description = "This is a room that the player can move to"
+        }
+        player {
+            name = "Enrico"
+            description = "The hero of this adventure"
+        }
+        winIf { playerEnters = "r-next" }
+    }
+}
+```
+
+Keep the service descriptor from Project setup. Build, install and play with:
+
+```sh
+./gradlew build
+kastle install com.example.mypackage.ExampleGame build/libs/tutorial-game-1.0.0.jar --name tutorial
+kastle play tutorial
+```
+
+Use the CLI built from the same monorepo checkout as the API when testing current-source changes. At the in-game prompt, `inspect room` describes the room and `go north` reaches the winning room.
+
+For another working game, see the monorepo's [sample-game](https://github.com/Essay97/kastle-monorepo/tree/main/sample-game).

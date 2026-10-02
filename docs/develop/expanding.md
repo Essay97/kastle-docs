@@ -66,7 +66,7 @@ character("c-doorman") {
         }
 
         question("d-ifno") {
-            text = "No problem, I'll wait until you're ready, but you're missing a lot of fun!"
+            text = "Then this is where our conversation ends. Good luck!"
         }
     }
 }
@@ -74,13 +74,13 @@ character("c-doorman") {
 
 1. The `firstQuestion` block is mandatory to let Kastle know where to start
 2. Here we are defining the ID of the next question. Make sure to define a question with this ID later on!
-3. If the player reaches this branch of the dialogue, they get rewarded with an item. Inside the `reward` block,
+3. If the player reaches this branch of the dialogue, the reward is placed in the current room. It is not added to inventory. Inside the `reward` block,
    you can define an item with the exact same DSL that we used before.
 4. Remember that the DSL is first and foremost Kotlin code! We can leverage all the features of the language,
    such as multiline strings and the `trimIndent` function in this case.
 
 The Dialogue DSL is for sure the the most complex in Kastle, but it really gives depth to your characters and your story!
 
-!!! tip "Source code"
+Try `talk jack`, select an answer, and then use `inspect diploma` if you chose Yes. The diploma in this example is not storable; add `storable = true` inside its reward block if you want `grab diploma` to work. Choosing No ends the conversation too: a character cannot be talked to again during the same run.
 
-    You can find the complete source code of this example on [Github](https://github.com/Essay97/kastle-example/tree/extended).
+Add these blocks to the complete example on [Your first game](first-game.md). For a separate reference game, see [sample-game](https://github.com/Essay97/kastle-monorepo/tree/main/sample-game).

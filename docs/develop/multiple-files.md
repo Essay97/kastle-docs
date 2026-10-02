@@ -37,7 +37,7 @@ character("c-doorman") {
         }
 
         question("d-ifno") {
-            text = "No problem, I'll wait until you're ready, but you're missing a lot of fun!"
+            text = "Then this is where our conversation ends. Good luck!"
         }
     }
 }
@@ -52,7 +52,7 @@ fun character(characterId: String, init: CharacterScope.() -> Unit)
 Its `init` block has a `CharacterScope` receiver, so if we want to extract our dialogue into another file, we just have to define an extension function for the `CharacterScope`, for example:
 
 ```kotlin
-import io.github.essay97.kastle.dsl.CharacterScope
+import com.saggiodev.kastle.dsl.CharacterScope
 
 fun CharacterScope.doormanDialogue() {
     dialogue {
@@ -83,13 +83,13 @@ fun CharacterScope.doormanDialogue() {
         }
 
         question("d-ifno") {
-            text = "No problem, I'll wait until you're ready, but you're missing a lot of fun!"
+            text = "Then this is where our conversation ends. Good luck!"
         }
     }
 }
 ```
 
-And then our character would become:
+Keep the helper in the same package as the game provider, or import it where it is used. Then our character would become:
 
 ```kotlin
 character("c-doorman") {
@@ -107,6 +107,8 @@ Much more readable! We could go further and extract each question into its own f
 Extracting some parts of the DSL into separate functions can enhance code reuse. As an example, imagine that we want to place a guard in each room of our game. Every guard has the same behavior, but each one has their own name. We colud define a function like the following:
 
 ```kotlin
+import com.saggiodev.kastle.dsl.RoomScope
+
 fun RoomScope.guard(id: String, name: String) {
     character(id) {
         this.name = name
